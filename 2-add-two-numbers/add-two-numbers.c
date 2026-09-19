@@ -14,9 +14,11 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
         struct ListNode * newnode = malloc(sizeof(struct ListNode));
         if(l1 != NULL){
             sum += l1->val;
+            l1 = l1->next;
         }
         if(l2 != NULL){
             sum += l2->val; 
+            l2 = l2->next; 
         }
         carry = sum / 10; 
         newnode->val = sum % 10;
@@ -28,12 +30,6 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
         else{
             temp->next = newnode ; 
             temp = newnode ; 
-        }
-        if(l1 != NULL){
-            l1 = l1->next ; 
-        }
-        if(l2 != NULL){
-            l2 = l2->next ; 
         }
     }
     return head ; 
