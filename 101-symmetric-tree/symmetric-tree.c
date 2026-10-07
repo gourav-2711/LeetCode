@@ -6,21 +6,18 @@
  *     struct TreeNode *right;
  * };
  */
-bool ismirror(struct TreeNode * left , struct TreeNode *right){
-    if(left == NULL && right == NULL){
+bool compare(struct TreeNode * left , struct TreeNode *right ){
+    if(left == NULL && right == NULL ){
         return true;
     }
-    if(left == NULL || right == NULL){
+    else if(left == NULL  || right == NULL ){
         return false;
     }
-    if(left->val != right->val){
-        return false ;
+    else if(left->val != right->val){
+        return false;
     }
-    return ismirror(left->left , right->right) && ismirror(left->right , right->left);
+    return compare(left->left , right->right ) && compare(left->right , right->left);
 }
 bool isSymmetric(struct TreeNode* root) {
-    if(root == NULL)
-        return true;
-    
-    return ismirror(root->left , root->right);
+    return compare(root->left , root->right);
 }
