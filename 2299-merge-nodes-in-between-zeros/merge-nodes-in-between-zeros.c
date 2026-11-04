@@ -39,6 +39,5 @@ struct ListNode* mergeNodes(struct ListNode* head) {
 
         temp1 = temp1->next;
     }
-
     return ptr;
 }
